@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>My Porfolio</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="images/icono.png" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -27,9 +27,9 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#gallery">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#gallery">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Herramientas</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Contact</a></li>
                 </ul>
@@ -53,9 +53,9 @@
                         Soy una persona sociable, responsable, ordenada y respetuosa, cualidades que me permiten trabajar con facilidad en equipo y mantener siempre un ambiente creativo y colaborativo. 
                         Mi objetivo es seguir creciendo profesionalmente, combinando mi pasión por el diseño con mis conocimientos en tecnología para crear experiencias visuales únicas y efectivas.</p>
                     <div class="social-icons">
-                        <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="#!"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="https://www.instagram.com/tu_usuario" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="social-icon" href="https://www.linkedin.com/in/alejandra-garc%C3%ADa-698898385/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://github.com/alejadev01"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://www.instagram.com/garcia_photoss/" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
@@ -267,5 +267,61 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <!-- Botón flotante de WhatsApp -->
+              <a href="https://wa.me/573137803508?text=¡Hola!%20Me%20encanta%20tu%20trabajo%20de%20diseño%20y%20fotografía.%20Quisiera%20conocer%20más%20sobre%20tus%20proyectos." 
+                     class="btn-whatsapp-azul" 
+                     target="_blank" 
+                     title="¡WhatsApp!">
+                     <i class="fab fa-whatsapp"></i>
+                     <span class="tooltip-whatsapp-azul">¡Envíame un mensaje!</span>
+              </a>
+<!-- Estilos -->
+<style>
+.btn-whatsapp-azul {
+  position: fixed;
+  width: 65px;
+  height: 65px;
+  bottom: 25px;
+  right: 25px;
+  background-color: #002855; /* Azul oscuro */
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 45px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-whatsapp-azul:hover {
+  background-color: #004aad; /* Azul más brillante */
+  transform: scale(1.1);
+}
+.btn-whatsapp-azul i {
+  margin-top: 17px;
+}
+
+/* Texto flotante (tooltip) */
+.tooltip-whatsapp-azul {
+  visibility: hidden;
+  width: 110px;
+  background-color: #004aad;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 6px 0;
+  position: absolute;
+  right: 75px;
+  bottom: 18px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+.btn-whatsapp-azul:hover .tooltip-whatsapp-azul {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
     </body>     
 </html>
