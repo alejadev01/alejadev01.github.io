@@ -44,20 +44,24 @@
                         Alejadra
                         <span class="text-primary">Garcia</span>
                     </h1>
-                    <div class="subheading mb-5">
+                   <div class="subheading mb-5">
                         Colombia Pasto - Nariño · (313) 7803508 ·
-                        <a href="aleja19systems2@gmail.com">aleja19systems2@gmail.com</a>
+                        <a href="#">aleja19systems2@gmail.com</a>
                     </div>
                     <p class="lead mb-5">Tengo 25 años y soy una apasionada del diseño y la fotografía. Me encanta crear composiciones atrevidas y visualmente impactantes que conecten con el público y dejen una huella duradera. 
                         Actualmente estudio Ingeniería de Software, lo que me ha permitido complementar mi lado creativo con una visión técnica enfocada en la innovación digital y el desarrollo de soluciones funcionales.
                         Soy una persona sociable, responsable, ordenada y respetuosa, cualidades que me permiten trabajar con facilidad en equipo y mantener siempre un ambiente creativo y colaborativo. 
                         Mi objetivo es seguir creciendo profesionalmente, combinando mi pasión por el diseño con mis conocimientos en tecnología para crear experiencias visuales únicas y efectivas.</p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/alejandra-garc%C3%ADa-698898385/"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="https://github.com/alejadev01"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="https://www.instagram.com/garcia_photoss/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    </div>
+                      <div style="display: flex; justify-content: center; align-items: center; padding: 15px 0;">
+                            <img src="images/personal.png" 
+                                alt="Foto de Alejandra García" 
+                                    style="width: 315px; 
+                                           height: 315px; 
+                                           border-radius: 50%; 
+                                           object-fit: cover; 
+                                           box-shadow: 0 8px 15px rgba(0,0,0,0.3); 
+                                           border: 5px solid #004080;">
+                      </div>
                 </div>
             </section>
             <hr class="m-0" />
@@ -254,14 +258,145 @@
                 <div class="resume-section-content">
                     <h2 class="mb-5">¿Te gustaría colaborar o saber más sobre mi trabajo?</h2>
                     <div class="subheading mb-3">Estaré encantada de leerte y compartir ideas creativas contigo.</div>
-                    <p>
-                       <br>📧 Correo: aleja19systems2@gmail.com
-                       <br>📱 Teléfono / WhatsApp: 3137803508
-                       <br>🌐 Portafolio / Página web: https://github.com/alejadev01/alejadev01.github.io
-                       <br>📸 Instagram: @garcia_photoss
-                       <br>💼 LinkedIn: https://www.linkedin.com/in/alejandra-garc%C3%ADa-698898385/?trk=opento_sprofile_topcard
-                    </p> 
+             <div class="comment-box">
+                    <h3>💬 Deja tu comentario</h3>
+                      <form id="commentForm">
+                             <input type="text" id="name" placeholder="Tu nombre" required>
+                             <textarea id="message" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+                             <button type="submit">Enviar</button>
+                      </form>
+
+                  <div id="commentSection">
+                      <h4>🗨️ Comentarios recientes:</h4>
+                       <ul id="commentsList"></ul>
+                 </div>
+             </div>
+<style>
+.comment-box {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  max-width: 600px;
+  margin: 50px auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.comment-box h3, .comment-box h4 {
+  color: #002855;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.comment-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-box input,
+.comment-box textarea {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.comment-box input:focus,
+.comment-box textarea:focus {
+  border-color: #004aad;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 74, 173, 0.3);
+}
+
+.comment-box button {
+  background-color: #002855;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.comment-box button:hover {
+  background-color: #004aad;
+  transform: scale(1.05);
+}
+
+#commentSection {
+  margin-top: 30px;
+}
+
+#commentsList {
+  list-style: none;
+  padding: 0;
+}
+
+#commentsList li {
+  background: #ffffff;
+  border-left: 5px solid #004aad;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+</style>
+
+<script>
+// Obtener referencias
+const form = document.getElementById('commentForm');
+const nameInput = document.getElementById('name');
+const messageInput = document.getElementById('message');
+const commentsList = document.getElementById('commentsList');
+
+// Cargar comentarios guardados (si existen)
+let comments = JSON.parse(localStorage.getItem('comments')) || [];
+renderComments();
+
+// Cuando se envía el formulario
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name = nameInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (name && message) {
+    const newComment = { name, message };
+    comments.push(newComment);
+
+    // Guardar en localStorage
+    localStorage.setItem('comments', JSON.stringify(comments));
+
+    // Mostrar en pantalla
+    renderComments();
+
+    // Limpiar el formulario
+    nameInput.value = '';
+    messageInput.value = '';
+  }
+});
+
+// Mostrar los comentarios
+function renderComments() {
+  commentsList.innerHTML = '';
+  comments.forEach(comment => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${comment.name}:</strong> ${comment.message}`;
+    commentsList.appendChild(li);
+  });
+}
+</script>
+        <!-- Redes Sociales -->
+                    <div class="social-icons" style="display: flex; justify-content: center; gap: 25px;">
+                        <a class="social-icon" href="https://www.linkedin.com/in/alejandra-garc%C3%ADa-698898385/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://github.com/alejadev01"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://www.instagram.com/garcia_photoss/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div> 
                 </div>
+                
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
